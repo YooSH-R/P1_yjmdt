@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>유정메디텍</title>
+  <!-- 파비콘 연결 -->
+  <link rel="shortcut icon" type="image/x-icon" href="./images/favicon.ico">
+  <!-- css 초기화 -->
+  <link href="./css/reset.css" rel="stylesheet" type="text/css" />
+  <!-- 폰트어썸-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- 스와이퍼 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <!-- 공통 서식 -->
+  <link href="./css/layout.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body>
+  <!-- 헤더영역 -->
+  <header id="header">
+    <h1>
+      <a href="#" title="메인페이지 바로가기">
+        <img src="./images/logo1.png" id="logo" alt="상단로고"/>
+      </a>
+    </h1>
+    <nav id="gnb">
+      <ul>
+        <li>
+          <a href="#introduction" title="회사소개 바로가기" >회사소개</a>
+        </li>
+        <li>
+          <a href="#products" title="제품정보 바로가기" >제품정보</a>
+        </li>
+        <li>
+          <a href="#partners" title="협력사 바로가기" >협력사</a>
+        </li>
+        <li>
+          <a href="#news" title="회사소식 바로가기" >회사소식</a>
+        </li>
+        <li>
+          <a href="#magazine" title="Magazine 바로가기"> Magazine</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+
+  <!-- 메인영역 -->
+  <!-- 메인 슬라이드 이미지 -->
+  <!-- Swiper -->
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <img src="./images/main1.png" class="slide_img1" alt="메인 슬라이드 이미지">
+        <span class="desk1 text-focus-in">Trusted Partner in <br> Diagnostics & Medical Solutions</span>
+      </div>
+      <div class="swiper-slide">
+        <img src="./images/main2.png" class="slide_img2" alt="메인 슬라이드 이미지">
+        <span class="desk2 text-focus-in">Connecting Hospitals, Patients,<br>and innovation</span>
+      </div>
+      <div class="swiper-slide">
+        <img src="./images/main3.png" class="slide_img3" alt="메인 슬라이드 이미지">
+        <span class="desk3 text-focus-in">Innovative Healthcare<br>Closer to You</span>
+      </div>
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <!-- Initialize Swiper -->
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+    spaceBetween: 0,
+    loop: true,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    autoplay: {
+      delay:5000,
+      disableOnInteraction:false,
+    },
+    effect:"fade",
+  });
+  // 슬라이드 변경될 때 텍스트 애니메이션 다시 실행
+  swiper.on("slideChangeTransitionStart", function () {
+    // 모든 desk 텍스트 선택
+    const texts = document.querySelectorAll(".swiper-slide span");
+    texts.forEach((txt) => {
+      txt.classList.remove("text-focus-in"); // 기존 클래스 제거
+      void txt.offsetWidth; // 브라우저 리플로우 강제 → 애니메이션 재시작 트릭
+      txt.classList.add("text-focus-in"); // 다시 클래스 추가
+    });
+  });
+
+  </script>
+
+  <main>
+    
+    <article id="introduction">
+      <div class="con_title"><h2>회사소개<span class="con_txt">유정메디텍의 가치와 비전</span></h2></div>
+      <img src="./images/con1_1.png" alt="회사소개 배경이미지" class="intro_img1">
+      <div class="intro_con">
+        <img src="./images/con1_2.png" alt="의료와 사람을 연결하는 이미지" class="intro_img2">
+        <div>
+        <h3>"의료와 사람을 연결하는 가치"</h3>
+        <p><span class="txt_color">유정메디텍</span>은 진단기기, 의료기기, 의약품, 의료소모품을 공급하는 전문 헬스케어 기업입니다.</p>
+        <p>국내외 파트너와 협력하여 안전하고 혁신적인 의료 솔루션을 제공하며, 병원과 연구소를 넘어 개인과 가정까지 아우르는 건강 파트너로 자리매김하고 있습니다.</p>
+        <p>앞으로도 사람과 의료를 잇는 가치를 실현하며, 환자와 고객에게 가장 가까운 헬스케어 파트너로 성장해 나가겠습니다.</p>
+        </div>
+        <a href="http://www.yjmdt.com/renew/company/company.php" title="회사소개 상세페이지로 이동" class="more">MORE<i class="fa-solid fa-angle-right"></i></a>
+      </div>
+    </article>
+
+    <!-- 라디오버튼1 브랜드별, 분야별 탭메뉴 -->
+    <input type="radio" id="brand" name="choice_1" checked />
+    <input type="radio" id="type" name="choice_1" />
+
+    <!-- 라디오버튼2_1 브랜드별 하위 탭메뉴 -->
+    <input type="radio" id="ABBOTT" name="choice_2_1" checked />
+    <input type="radio" id="Beckman_Coulter" name="choice_2_1" />
+    <input type="radio" id="BioRad" name="choice_2_1" />
+    <input type="radio" id="STAGO" name="choice_2_1" />
+    <input type="radio" id="Thermo_Fisher" name="choice_2_1" />
+    <input type="radio" id="Horiba" name="choice_2_1" />
+    <input type="radio" id="ETC" name="choice_2_1" />
+    <input type="radio" id="CITIVA_PALL" name="choice_2_1" />
+    <input type="radio" id="PROTIA" name="choice_2_1" /> 
+
+    <!-- 라디오버튼2_2 분야별 하위 탭메뉴 -->
+    <input type="radio" id="instrument" name="choice_2_2" checked/>
+    <input type="radio" id="Rapid" name="choice_2_2" />
+    <input type="radio" id="Reagent" name="choice_2_2" />
+    <input type="radio" id="RI" name="choice_2_2" />
+    <input type="radio" id="diagnose" name="choice_2_2" />
+    <input type="radio" id="Filter" name="choice_2_2" />
+    <input type="radio" id="mooore" name="choice_2_2" />
+    
+    <section id="products">
+      <div class="con_title"><h2>제품정보<span class="con_txt">브랜드, 분야별 대표제품</span></h2></div>
+      
+      <div class="products_choice1">
+        <label for="brand">브랜드별</label>
+        <label for="type">분야별</label>
+      </div>
+
+      <div class="products_choice2">
+        <label for="ABBOTT">ABBOTT</label>
+        <label for="Beckman_Coulter">Beckman Coulter</label>
+        <label for="BioRad">BioRad</label>
+        <label for="STAGO">STAGO</label>
+        <label for="Thermo_Fisher">Thermo Fisher</label>
+        <label for="Horiba">Horiba</label>
+        <label for="ETC">ETC</label>
+        <label for="CITIVA_PALL">CITIVA(PALL)</label>
+        <label for="PROTIA">PROTIA</label>
+      </div>
+      
+      <div class="products_choice3">
+        <label for="instrument">장비</label>
+        <label for="Rapid">Rapid</label>
+        <label for="Reagent">Reagent</label>
+        <label for="RI">RI</label>
+        <label for="diagnose">진료재료</label>
+        <label for="Filter">Filter</label>
+        <label for="mooore">기타</label>
+      </div>
+
+      <div class="products_list">
+        <ul class="products_lst1 t01">
+          <li>
+            <a href="http://www.yjmdt.com/renew/product/product_view_new.php?no=132&ctg=&sub_ctg=1" title="제품소개 바로가기">
+              <img src="./images/images/ABBOTT/product1.jpg" alt="제품">
+              <div>
+                <h3>[Panbio Covid Self-Test] 코로나-19 항원 자가검사</h3>
+                <p>ABBOTT</p>
+                <span>more<i class="fa-solid fa-angle-right"></i></span>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="http://www.yjmdt.com/renew/product/product_view_new.php?no=124&ctg=&sub_ctg=1" title="제품소개 바로가기">
+              <img src="./images/images/ABBOTT/product2.jpg" alt="제품">
+              <div>
+                <h3>Urometer 720</h3>
+                <p>ABBOTT</p>
+                <span>more<i class="fa-solid fa-angle-right"></i></span>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="http://www.yjmdt.com/renew/product/product_view_new.php?no=123&ctg=&sub_ctg=1" title="제품소개 바로가기">
+              <img src="./images/images/ABBOTT/product3.jpg" alt="제품">
+              <div>
+                <h3>Urometer 120</h3>
+                <p>ABBOTT</p>
+                <span>more<i class="fa-solid fa-angle-right"></i></span>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="http://www.yjmdt.com/renew/product/product_view_new.php?no=122&ctg=&sub_ctg=1" title="제품소개 바로가기">
+              <img src="./images/images/ABBOTT/product4.jpg" alt="제품">
+              <div>
+                <h3>AF41FK15A, PanbioTM COVID-19 Ag</h3>
+                <p>ABBOTT</p>
+                <span>more<i class="fa-solid fa-angle-right"></i></span>
+              </div>
+            </a>
+          </li>
+        </ul>
+        <ul class="products_lst2 t01">
+          <li>
+            <a href="http://www.yjmdt.com/renew/product/product_view_new.php?no=126&ctg=&sub_ctg=3" title="제품소개 바로가기">
+              <img src="./images/images/Beckman_Coulter/product1.jpg" alt="제품">
+              <div>
+                <h3>DXH 560</h3>
+                <p>Beckman Coulter</p>
+                <span>more<i class="fa-solid fa-angle-right"></i></span>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="http://www.yjmdt.com/renew/product/product_view_new.php?no=125&ctg=&sub_ctg=3" title="제품소개 바로가기">
+              <img src="./images/images/Beckman_Coulter/product2.jpg" alt="제품">
+              <div>
+                <h3>Access2</h3>
+                <p>Beckman Coulter</p>
+                <span>more<i class="fa-solid fa-angle-right"></i></span>
+              </div>
+            </a>
+          </li>
+        </ul>
+        <ul class="products_lst3 t01">
+          <li>
+            <a href="#" title="제품소개 바로가기">
+              <img src="./images/images/BioRad/product1.jpg" alt="제품">
+              <div>
+                <h3>VIROTROL™ II</h3>
+                <p>BioRad</p>
+                <span>more<i class="fa-solid fa-angle-right"></i></span>
+              </div>
+            </a>
+          </li>
+        </ul>
+        <ul class="products_lst4 t01">
+          <li>
+            <a href="#" title="제품소개 바로가기">
+              <img src="./images/images/STAGO/product1.jpg" alt="제품">
+              <div>
+                <h3>STA-Compact MAX 3</h3>
+                <p>STAGO</p>
+                <span>more<i class="fa-solid fa-angle-right"></i></span>
+              </div>
+            </a>
+          </li>
+        </ul>
+        <ul class="products_lst5 t01">
+          <li class="ready">
+            제품 준비중
+          </li>
+        </ul>
+        <ul class="products_lst6 t01">
+          <li>
+            <a href="#" title="제품소개 바로가기">
+              <img src="./images/images/Horiba/product1.jpg" alt="제품">
+              <div>
+                <h3>Yumizen M100 Banalyst</h3>
+                <p>Horiba</p>
+                <span>more<i class="fa-solid fa-angle-right"></i></span>
+              </div>
+            </a>
+          </li>
+        </ul>
+        <ul class="products_lst7 t01">
+          <li>
+            <a href="#" title="제품소개 바로가기">
+              <img src="./images/images/ETC/product1.jpg" alt="제품">
+              <div>
+                <h3>CHR12, ALL Check HCG Card</h3>
+                <p>ETC</p>
+                <span>more<i class="fa-solid fa-angle-right"></i></span>
+              </div>
+            </a>
+          </li>
+        </ul>
+        <ul class="products_lst8 t01">
+          <li class="ready">
+            제품 준비중
+          </li>
+        </ul>
+        <ul class="products_lst9 t01">
+          <li>
+            <a href="#" title="제품소개 바로가기">
+              <img src="./images/images/PROTIA/product1.jpg" alt="제품">
+              <div>
+                <h3>Q-STATION (PROTIA Allergy Q)</h3>
+                <p>PROTIA</p>
+                <span>more<i class="fa-solid fa-angle-right"></i></span>
+              </div>
+            </a>
+          </li>
+        </ul>
+        
+        <ul class="products_lst2_1 t02">
+          <li>
+            <a href="http://www.yjmdt.com/renew/product/product_view_new.php?no=138&ctg=2&sub_ctg=%EC%9E%A5%EB%B9%84" title="제품소개 바로가기">
+              <img src="./images/images/p_img1.jpg" alt="제품">
+              <div>
+                <h3>MTS (혈액은행 검사)</h3>
+                <p>BioRad</p>
+                <span>more<i class="fa-solid fa-angle-right"></i></span>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="http://www.yjmdt.com/renew/product/product_view_new.php?no=137&ctg=2&sub_ctg=%EC%9E%A5%EB%B9%84" title="제품소개 바로가기">
+              <img src="./images/images/p_img2.jpg" alt="제품">
+              <div>
+                <h3>IH-500 (혈액은행 검사)</h3>
+                <p>BioRad</p>
+                <span>more<i class="fa-solid fa-angle-right"></i></span>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="http://www.yjmdt.com/renew/product/product_view_new.php?no=136&ctg=2&sub_ctg=%EC%9E%A5%EB%B9%84" title="제품소개 바로가기">
+              <img src="./images/images/p_img3.jpg" alt="제품">
+              <div>
+                <h3>IH-1000 (혈액은행 검사)</h3>
+                <p>BioRad</p>
+                <span>more<i class="fa-solid fa-angle-right"></i></span>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="http://www.yjmdt.com/renew/product/product_view_new.php?no=135&ctg=2&sub_ctg=%EC%9E%A5%EB%B9%84" title="제품소개 바로가기">
+              <img src="./images/images/p_img4.jpg" alt="제품">
+              <div>
+                <h3>VARIANT II TURBO (HbA1C 검사)</h3>
+                <p>BioRad</p>
+                <span>more<i class="fa-solid fa-angle-right"></i></span>
+              </div>
+            </a>
+          </li>
+        </ul>
+        <ul class="products_lst2_2 t02">
+          <li>
+            <a href="#" title="제품소개 바로가기">
+              <img src="./images/images/ABBOTT/product1.jpg" alt="제품">
+              <div>
+                <h3>[Panbio Covid Self-Test] 코로나-19 항원 자가검사</h3>
+                <p>ABBOTT</p>
+                <span>more<i class="fa-solid fa-angle-right"></i></span>
+              </div>
+            </a>
+          </li>
+        </ul>
+        <ul class="products_lst2_3 t02">
+          <li>
+            <a href="#" title="제품소개 바로가기">
+              <img src="./images/images/BioRad/product1.jpg" alt="제품">
+              <div>
+                <h3>VIROTROL™ II</h3>
+                <p>BioRad</p>
+                <span>more<i class="fa-solid fa-angle-right"></i></span>
+              </div>
+            </a>
+          </li>
+        </ul>
+        <ul class="products_lst2_4 t02">
+          <li class="ready">
+            제품 준비중
+          </li>
+        </ul>
+        <ul class="products_lst2_5 t02">
+          <li>
+            <a href="#" title="제품소개 바로가기">
+              <img src="./images/images/p_img5.jpg" alt="제품">
+              <div>
+                <h3>아라리이 suction tube</h3>
+                <p>ETC</p>
+                <span>more<i class="fa-solid fa-angle-right"></i></span>
+              </div>
+            </a>
+          </li>
+        </ul>
+        <ul class="products_lst2_6 t02">
+          <li class="ready">
+            제품 준비중
+          </li>
+        </ul>
+        <ul class="products_lst2_7 t02">
+          <li class="ready">
+            제품 준비중
+          </li>
+        </ul>
+      </div>
+      <a href="http://www.yjmdt.com/renew/product/product_new.php" title="제품정보 상세페이지로 이동" class="all">제품 더보기<i class="fa-solid fa-angle-right"></i></a>
+    </section>
+
+
+
+    <article id="partners">
+      <div class="con_title"><h2>협력사<span class="con_txt">글로벌 유통망과 협력 파트너를 통한 의료 접근성 확대</span></h2></div>
+        <ul id="g_wrap">
+          <li>
+            <a href="https://www.bio-rad.com/ko-kr/home" title="협력사 홈페이지 바로가기"><img src="./images/partners_logo1.png" class="ptn1" alt="협력사 로고"></a>
+          </li>
+          <li>
+            <a href="https://www.beckman.kr/" title="협력사 홈페이지 바로가기"><img src="./images/partners_logo2.png" class="ptn2" alt="협력사 로고"></a>
+          </li>
+          <li>
+            <a href="https://www.stago.com/" title="협력사 홈페이지 바로가기"><img src="./images/partners_logo3.png" class="ptn3" alt="협력사 로고"></a>
+          </li>
+          <li>
+            <a href="" title="협력사 홈페이지 바로가기"><img src="./images/partners_logo4.png" class="ptn4" alt="협력사 로고"></a>
+          </li>
+          <li>
+            <a href="https://www.kr.abbott/" title="협력사 홈페이지 바로가기"><img src="./images/partners_logo5.png" class="ptn5" alt="협력사 로고"></a>
+          </li>
+          <li>
+            <a href="https://www.uimd.co.kr/" title="협력사 홈페이지 바로가기"><img src="./images/partners_logo6.png" class="ptn6" alt="협력사 로고"></a>
+          </li>
+        </ul>
+    </article>
+
+
+
+    <section id="news">
+      <div class="con_title"><h2>회사소식<span class="con_txt">함께하는 최신 소식</span></h2></div>
+
+      <!-- Swiper -->
+      <div class="swiper2 mySwiper2">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <a href="http://www.yjmdt.com/renew/community/notice.php" title="뉴스바로가기">
+              <img src="./images/news_img1.png" alt="뉴스이미지" /><h3>유정메디텍, 제113회 도쿄바이오포럼 참석</h3><p>최신진단기술과 장비들이 소개된 도쿄바이오포럼 참석</p>
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="http://www.yjmdt.com/renew/community/notice.php" title="뉴스바로가기">
+              <img src="./images/news_img2.png" alt="뉴스이미지" /><h3>유정메디텍, 한국산업본부 선정 우수회사 등극</h3><p>한국산업본부에서 선정한 2025년 의약품유통 품질우수회사에 등극</p>
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="http://www.yjmdt.com/renew/community/notice.php" title="뉴스바로가기">
+              <img src="./images/news_img3.png" alt="뉴스이미지" /><h3>유정메디텍, 티피바이오와 계약 성사</h3><p>티피바이오와 전산프로그램 3개월 계약 협의</p>
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="http://www.yjmdt.com/renew/community/notice.php" title="뉴스바로가기">
+            <img src="./images/news_img4.png" alt="뉴스이미지" /><h3>유정메디텍, 사내 콜드체인 아이디어 공모전</h3><p>유정메디텍이 콜드체인을 주제로 한 아이디어 공모전을 개최</p>
+            </a>
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+
+      <!-- Swiper JS -->
+      <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+      <!-- Initialize Swiper -->
+      <script>
+        var swiper = new Swiper(".mySwiper2", {
+          slidesPerView: "auto",
+          centeredSlides: true,
+          loop: true,
+          spaceBetween: 30,
+          pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+          },
+        });
+      </script>
+    </section>
+
+
+
+    <section id="magazine">
+      <div class="con_title"><h2>Magazine & Insight<span class="con_txt">건강을 위한 지식나눔</span></h2></div>
+      <ul>
+        <li>
+          <img src="./images/magazine_img1.png" alt="잡지이미지" /><h3>정밀 진단기기의 혁신</h3><p>차세대 분자 진단 기술이 만들어낸 진단분야에서의 혁신적인 변화를 소개합니다.</p><a href="#" title="magazine상세페이지 바로가기">더보기<i class="fa-solid fa-angle-right"></i></a>
+        </li>
+        <li>
+          <img src="./images/magazine_img2.png" alt="잡지이미지" /><h3>글로벌 인증과 안정성</h3><p>국제 표준에 맞춘 의료기기와  의약품 인증이 어떻게 시장의 신뢰를 받고 있는지 소개합니다.</p><a href="#" title="magazine상세페이지 바로가기">더보기<i class="fa-solid fa-angle-right"></i></a>
+        </li>
+        <li>
+          <img src="./images/magazine_img3.png" alt="잡지이미지" /><h3>홈케어 시장 확대</h3><p>개인과 가정에서 의료소모품과 기기를 활용하는 새로운 트렌드를 소개합니다.</p><a href="#" title="magazine상세페이지 바로가기">더보기<i class="fa-solid fa-angle-right"></i></a>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  
+  
+  <!-- 푸터영역 -->
+  <footer>
+    <h2><img src="./images/btm_logo.jpg" alt="하단 로고" /></h2>
+    <div>
+      <address>상호: (주)유정메디텍 | 주소: 00시 0구 00로0길 00, B0,0층(00동) | 사업자등록번호:000-00-00000<br />TEL: 0000-0000 | FAX: 000-0000-0000 | <a href="#" title="회사이메일">E-mail: 00000@0000.net</a></address>
+      <p><br />Copyright&copy;2025 YUJUNG MEDITIEC All Right Reserved.</p>
+    </div>
+    <a href="#" title="카카오톡카페로 가기"><img src="./images/icon_kakaotalk.png" class="sns_icon1" alt="sns아이콘" /></a>
+    <a href="#" title="네이버카페로 가기"><img src="./images/icon_naver.png" class="sns_icon2" alt="sns아이콘" /></a>
+    <a href="#header" id="top_btn" title="맨 위로 가기" class="hide"><i class="fa-solid fa-arrow-up top_btn"></i></a>
+  </footer>
+
+  <!-- 자바스크립트 -->
+  <script src="./script/script.js"></script>
+</body>
+</html>
