@@ -118,11 +118,11 @@ header> nav a:hover{
       object-fit: cover;
     }
     .swiper .swiper-pagination{
-      transform: translate(0, -140px);
+      transform: translate(0, -40px);
     }
     .swiper .swiper-pagination-bullet{
       width:15px; height:15px;
-      background-color: #fff;
+      background-color: #858585;
     }
 
 .desk1, .desk2, .desk3{
