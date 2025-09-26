@@ -177,6 +177,7 @@ header> nav a:hover{
 }
 #introduction .intro_img1{
   width:100%;
+  height: 100%;
   position:absolute;
   top:0px;
   z-index:-3;
@@ -219,9 +220,9 @@ header> nav a:hover{
 
 /* 제품정보 */
 #products{
-  width:100%;
+  width:1440px;
   height:1024px;
-  position: relative;
+  position:relative;
 }
 
 /* 버튼들 */
@@ -235,10 +236,24 @@ header> nav a:hover{
   cursor:pointer;
   text-align:center; line-height:60px;
 }
-.products_choice1 {
+.products_choice1{
   margin-top:40px;
   font-weight:bold;
 }
+
+.products_choice2, .products_choice3{
+  width:1205px;
+  border-top:1px solid #979797;
+  padding-top:13px;
+  margin-bottom: 0;
+}
+
+.products_choice2 div, .products_choice3 div{margin:0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.products_choice3 div{width:900px;}
 
 .products_choice1 label{width:120px; height:60px;}
 
@@ -259,30 +274,18 @@ header> nav a:hover{
   border-radius: 30px;
   width:120px; height:40px;
   line-height:40px;
-  margin-right:10px;
   transition:0.3s;
+  justify-content: space-between;
 }
 
 .products_choice2 label:last-child, .products_choice3 label:last-child{
-  margin-right:0;
+
 }
 
 .products_choice2 label:hover, .products_choice3 label:hover{
   border:1px solid var(--m_color1);
   background-color: var(--m_color1);
   color:#fff;
-}
-
-.products_choice2{
-  border-top:1px solid #979797;
-  padding-top:13px;
-  width:1205px;
-}
-
-.products_choice3{
-  border-top:1px solid #979797;
-  padding-top:13px;
-  width:1205px;
 }
 
 
@@ -512,8 +515,8 @@ header> nav a:hover{
 /* 제품 더보기 */
 #products .all{
   position:absolute;
-  right:350px;
-  bottom:160px;
+  right:-120px;
+  bottom:140px;
   font-size:18px;
   border:1px solid #ccc;
   border-radius: 20px;
